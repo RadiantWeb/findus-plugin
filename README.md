@@ -26,7 +26,7 @@ There are several Component Settings you will want check when adding the Findus 
 * **location_title** - The title of your location.
 * **address** - The address of your location.
 * **template** - The view template to use.
-** - link_only
+   - link_only
 ** - map_only
 ** - map_info_right
 ** - info_small_map
