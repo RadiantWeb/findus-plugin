@@ -1,0 +1,21 @@
+.map {
+  width: 500px;
+  height: 380px;
+}
+#largemap {
+  width: 100%;
+  height: 380px;
+}
+#map img,
+#largemap img {
+  max-width: none;
+}
+.img-polaroid {
+  float: left;
+  margin-right: 22px!important;
+  margin-bottom: 22px;
+}
+h3.awesome_heading span {
+  margin-right: 19px;
+  padding-top: 11px;
+}

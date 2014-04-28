@@ -1,0 +1,4 @@
+{% set zoom = 11 %}
+{% set width = 140 %}
+{% set height = 100 %}
+<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ lat }},{{ lon }}&zoom={{ zoom }}&format=png&sensor=false&size={{ width }}x{{ height }}&maptype=roadmap&style=gamma:1|hue:{{ color }}{% if color == 'black' %}|invert_lightness:true{% endif %}|saturation:-100" class="smallmap img-polaroid"/>

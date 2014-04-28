@@ -1,0 +1,95 @@
+<p><b><a href="#map_{{__SELF__.id}}" class="show_map_{{__SELF__.id}}" onClick="settupMap_{{__SELF__.id}}()">&raquo; Get Directions</a></b></p>
+<div style="display: none;" class="map_show_{{__SELF__.id}}">
+
+		<div id="map_{{__SELF__.id}}" class="map"></div>
+		<script type="text/javascript">
+			//<![CDATA[
+			// The Google Map
+			//$(document).ready(function(){
+
+				var map_{{__SELF__.id}};
+			
+				var settupMap_{{__SELF__.id}} = function(){
+		    
+				    var infowindow = new google.maps.InfoWindow();  
+				    
+				    $('.map_show').show();
+				    
+				    // Set the map styles
+				    var styles = [
+					  {
+					    "stylers": [
+					      { "gamma": 1.61 },
+					      {% if color == 'black' or color == 'grey' %}
+					      { "saturation": -100 },
+					      {% endif %}
+					      {% if color == '#ff6e00' %}
+					      { "saturation": -64 },
+					      {% endif %}
+					      {% if color == 'black' %}
+					      { "invert_lightness": true },
+					      {% endif %}
+					      { "lightness": -7 },
+					      { "hue": "{{ color }}" }
+					    ]
+					  }
+					];
+				      
+					// Set the options to be used when creating the map
+					var myOptions = {
+						zoom: 0,
+						center: new google.maps.LatLng({{ lat }}, {{ lon }}),
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					
+					map_{{__SELF__.id}} = new google.maps.Map(document.getElementById("map_{{__SELF__.id}}"),myOptions);
+					
+					// Create a new latlng based on the latitude and longitude from the user's position
+					var user_lat_long_{{__SELF__.id}} = new google.maps.LatLng({{ lat }},{{ lon }});
+					
+					var locations_{{__SELF__.id}} = [
+					   ['{{ address|replace({"'":"\'"}) }}','{{ lat }}','{{ lon }}',1]
+					];
+					
+					for (var i = 0; i < locations_{{__SELF__.id}}.length; i++) {
+					    var location = locations_{{__SELF__.id}}[i];
+					    var myLatLng = new google.maps.LatLng(location[1], location[2]);
+					    var marker = new google.maps.Marker({
+					        position: myLatLng,
+					        map: map_{{__SELF__.id}},
+					        title: location[0],
+					        zIndex: location[3]
+					    });
+					    
+					    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					        return function() {
+					          infowindow.setContent('<h4>'+locations_{{__SELF__.id}}[i][0]+'</h4><a href="http://maps.google.com/maps?daddr='+location[1]+','+location[2]+'" target="_blank" style="color: black!important;">Get Directions</a>');
+					          infowindow.open(map_{{__SELF__.id}}, marker);
+					        }
+					      })(marker, i));
+					      
+				    };
+					
+					map_{{__SELF__.id}}.setOptions({styles: styles});
+					map_{{__SELF__.id}}.setCenter(user_lat_long_{{__SELF__.id}});
+					map_{{__SELF__.id}}.setZoom(12);
+					
+					google.maps.event.trigger(map_{{__SELF__.id}}, "resize");
+					$('.map_show_{{__SELF__.id}}').hide();
+				}
+				
+				$('.show_map_{{__SELF__.id}}').each(function(){
+					$(this).fancybox({
+						afterShow: function(){
+							var currCenter = map_{{__SELF__.id}}.getCenter();
+							google.maps.event.trigger(map_{{__SELF__.id}}, "resize");
+							map_{{__SELF__.id}}.setCenter(currCenter);
+						},
+					});
+				});
+	
+			//});
+			//]]>
+		</script>
+
+</div>
