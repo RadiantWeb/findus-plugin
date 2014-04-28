@@ -33,7 +33,7 @@ class Findus extends ComponentBase
             'template' => [
                 'description' => 'Type of map/link to use',
                 'title'       => 'Map Style',
-                'default'     => '',
+                'default'     => 'map_only',
                 'type'        => 'string'
             ],
             'color' => [
