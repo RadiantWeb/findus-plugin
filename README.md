@@ -27,16 +27,16 @@ There are several Component Settings you will want check when adding the Findus 
 * **address** - The address of your location.
 * **template** - The view template to use.
    - link_only
-** - map_only
-** - map_info_right
-** - info_small_map
+   - map_only
+   - map_info_right
+   - info_small_map
 * **color** - The Color Hue of your Map
-** - none
-** - red
-** - blue
-** - green
-** - yellow
-** - purple
-** - grey
-** - black
-** - brown
+   - none
+   - red
+   - blue
+   - green
+   - yellow
+   - purple
+   - grey
+   - black
+   - brown
