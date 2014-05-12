@@ -34,13 +34,15 @@ class Findus extends ComponentBase
                 'description' => 'Type of map/link to use',
                 'title'       => 'Map Style',
                 'default'     => 'map_only',
-                'type'        => 'string'
+                'type'        => 'dropdown',
+                'options'     => ['map_only'=>'Large Map','popup'=>'Popup','info_small_map'=>'Small Map']
             ],
             'color' => [
                 'description' => 'Color Hue',
-                'title'       => 'Color Hue (black,red,blue,green,yellow,purple,brown,grey)',
+                'title'       => 'Color Hue',
                 'default'     => 'none',
-                'type'        => 'string'
+                'type'        => 'dropdown',
+                'options'     => ['black'=>'black','red'=>'red','blue'=>'blue','green'=>'green','yellow'=>'yellow','purple'=>'purple','brown'=>'brown','grey'=>'grey']
             ]
         ];
     }

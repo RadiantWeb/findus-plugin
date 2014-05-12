@@ -2,6 +2,7 @@
 <div style="display: none;" class="map_show_{{__SELF__.id}}">
 
 		<div id="map_{{__SELF__.id}}" class="map"></div>
+		{% put scripts %}
 		<script type="text/javascript">
 			//<![CDATA[
 			// The Google Map
@@ -91,5 +92,5 @@
 			//});
 			//]]>
 		</script>
-
+		{% endput %}
 </div>
