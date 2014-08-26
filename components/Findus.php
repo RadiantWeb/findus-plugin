@@ -75,9 +75,9 @@ class Findus extends ComponentBase
         $this->page['location_title'] = $this->property('location_title');
 
         $address_array = explode(',',$findus_formatted_address);
-        $this->page['address1'] = $address_array[0]; 
-        $this->page['city'] = $address_array[1]; 
-        $this->page['state_zip'] = $address_array[2]; 
+        $this->page['address1'] = isset($address_array[0]) ? $address_array[0] : '';
+        $this->page['city'] = isset($address_array[1]) ? $address_array[1] : '';
+        $this->page['state_zip'] = isset($address_array[2]) ? $address_array[2] : '';
 
         $colors = array(
             'none'=>'none',
