@@ -42,7 +42,7 @@ class Findus extends ComponentBase
                 'title'       => 'Color Hue',
                 'default'     => 'none',
                 'type'        => 'dropdown',
-                'options'     => ['black'=>'black','red'=>'red','blue'=>'blue','green'=>'green','yellow'=>'yellow','purple'=>'purple','brown'=>'brown','grey'=>'grey']
+                'options'     => ['none'=>'none','black'=>'black','red'=>'red','blue'=>'blue','green'=>'green','yellow'=>'yellow','purple'=>'purple','brown'=>'brown','grey'=>'grey']
             ]
         ];
     }
@@ -80,7 +80,7 @@ class Findus extends ComponentBase
         $this->page['state_zip'] = $address_array[2]; 
 
         $colors = array(
-            'none'=>'',
+            'none'=>'none',
             'black'=>'black',
             'red'=>'#ff0000',
             'blue'=>'#0077ff',
